@@ -46,9 +46,10 @@ namespace BuildAgentCleaner.Tfs
         public void Clean()
         {
             var startTime = DateTime.Now.Millisecond;
-            Log.Info("Cleaning Start");
-
+            
             if (!_isInitialized) Initialize();
+
+            Log.Info("Cleaning Start");
 
             if (!Directory.Exists(_fullPathNameToClean))
             {

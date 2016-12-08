@@ -20,6 +20,7 @@ namespace TfsBuildAgentCleaner.Console
             {
                 Log.Error(ex);
             }
+            System.Console.ReadLine();
         }
     }
 }
