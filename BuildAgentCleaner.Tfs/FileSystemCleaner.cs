@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using log4net;
 
 namespace BuildAgentCleaner.Tfs
@@ -49,7 +46,7 @@ namespace BuildAgentCleaner.Tfs
             
             if (!_isInitialized) Initialize();
 
-            Log.Info("Cleaning Start");
+            Log.Info("Start cleaning");
 
             if (!Directory.Exists(_fullPathNameToClean))
             {
@@ -59,7 +56,7 @@ namespace BuildAgentCleaner.Tfs
 
             GetFilesToDelete(_isDeleteActive, _level, 1, new DirectoryInfo(_fullPathNameToClean), _deleteFilesOlderThanThisNumberOfDays);
 
-            Log.Info($"Cleaning Start in {DateTime.Now.Millisecond - startTime} millisecond(s)");
+            Log.Info($"End cleaning [duration: {DateTime.Now.Millisecond - startTime} millisecond(s)]");
         }
 
         private void GetFilesToDelete(bool isDelete, int level, int currentLevel, DirectoryInfo di, int nbDays)
